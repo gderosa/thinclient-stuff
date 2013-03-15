@@ -1,0 +1,2 @@
+#!/bin/sh
+rdesktop -f 192.168.1.2 -a 32 -k it -r disk:disk=/mnt
