@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export PATH=/usr/local/sbin:/usr/local/bin::/usr/sbin:/usr/bin:/sbin:/bin
+
 # Put this in /etc/udev/rules.d/automount.rules
 #
 # ACTION=="add", ENV{DEVTYPE}=="partition", RUN+="domount %N"
@@ -37,18 +39,12 @@ fi
 mkdir -p $DIR
 cat > $TMPFILE << EOF
 #!/bin/sh
-echo "$* will be mounted on $DIR. "
-echo "Ctrl-D or exit to unmount."
-echo "But exit from the directory first!"
 sudo /bin/mount -o user $* $DIR
-#cd $DIR
-cd
-$MYSHELL
-cd
-sudo /bin/umount -f $DIR && rmdir $DIR
+start-stop-daemon -K -x /usr/local/bin/mnttool -o
+start-stop-daemon -S -x /usr/local/bin/mnttool -b
 EOF
 chmod a+x $TMPFILE
-su $MYLOGIN -c "$TERM -e $TMPFILE" &
+su $MYLOGIN -c $TMPFILE 
 sleep 1
 rm -f $TMPFILE
 
