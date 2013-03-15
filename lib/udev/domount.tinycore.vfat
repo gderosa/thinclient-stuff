@@ -1,0 +1,50 @@
+#!/bin/sh
+
+export PATH=/usr/local/sbin:/usr/local/bin::/usr/sbin:/usr/bin:/sbin:/bin
+
+# Put this in /etc/udev/rules.d/automount.rules
+#
+# ACTION=="add", ENV{DEVTYPE}=="partition", RUN+="domount %N"
+
+# All based on:
+# https://wiki.archlinux.org/index.php/USB_Storage_Devices
+
+# But:
+# * this file is in /lib/udev ,  not /usr/lib/udev
+# * temp script in /tmp bcause /run is mounted with noexec
+
+#edit the following variables to suit your needs
+MYUID=1001              # your user uid
+MYGID=50                # your user gid
+MYLOGIN=tc              # your login
+TERM=xterm	        # your terminal emulator
+MYSHELL=sh              # your shell
+MOUNTBASE=/mnt          # 
+export DISPLAY=:0       # your X display
+
+if [ "x$RANDOM" = "x" ]; then
+	RANDOM=$$.`date +%s`
+fi
+
+TMPFILE=/tmp/automount.$RANDOM
+DIR=`cat /etc/fstab | grep -v '#' | grep $* | awk '{print $2;}'`
+if [ "x$DIR" = "x" ]; then
+        MYUUID=`blkid -o value -s UUID $*`
+        if [ "x$MYUUID" = "x" ]; then
+                MYUUID="unknown"
+        fi
+        #DIR=$MOUNTBASE/$MYUUID
+        DIR=$MOUNTBASE/`basename $*`
+fi
+mkdir -p $DIR
+cat > $TMPFILE << EOF
+#!/bin/sh
+sudo /bin/mount -o user,uid=$MYUID,gid=$MYGID,umask=0000 $* $DIR
+start-stop-daemon -K -x /usr/local/bin/mnttool -o
+start-stop-daemon -S -x /usr/local/bin/mnttool -b
+EOF
+chmod a+x $TMPFILE
+su $MYLOGIN -c $TMPFILE 
+sleep 1
+rm -f $TMPFILE
+
