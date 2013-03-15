@@ -16,12 +16,10 @@ Edit /home/cubox/.remmina for details on RDP servers.
 
 Edit /home/.xinitrc to change window manager.
 
-The whole /media Linux directory is visible bu the RDP server under 
+The whole /media Linux directory is visible to the RDP server under 
 "Computer" as a system directory or remote unit.
 
 When you put an USB pendrive in your box, a Terminal will popup informing 
 you that the device is being mounted and how to unmount.
 
-
 Enjoy ;)
-
