@@ -1,0 +1,4 @@
+Be flexible enough to add options uid, gid, umask etc.
+if and only if the filesystem does not support Unix 
+permission and/or ownership (namely vfat).
+
