@@ -1,0 +1,5 @@
+#!/bin/sh
+# put other system startup commands here
+
+# Keyboard layout
+loadkmap < /usr/share/kmap/qwerty/it.kmap 

@@ -1,0 +1,6 @@
+.xmnttool.lst is read by a modified version of /usr/bin/mounttables.sh
+to prevent certain devices from being displayed by TinyCore's mnttool.
+
+A discussion which suggested the idea is found at
+http://forum.tinycorelinux.net/index.php?topic=12226.0
+

@@ -1,0 +1,5 @@
+home
+opt
+etc/udev/rules.d/automount.rules
+lib/udev/domount
+usr/bin/mountables.sh
