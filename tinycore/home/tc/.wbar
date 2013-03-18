@@ -1,0 +1,25 @@
+# This should no longer be a symlink to
+# /usr/local/tce.icons
+#
+# The Bar && Font && Font size (11)
+i: /usr/local/share/wbar/osxbarback.png
+t: /usr//share/fonts/luxisr/11
+c: wbar --bpress --pos bottom --zoomf 2 --isize 32 
+i: /usr/local/share/pixmaps/exittc.png
+t: Exit
+c: exec exittc
+i: /usr/local/share/pixmaps/aterm.png
+t: Terminal
+c: exec aterm 
+i: /usr/local/share/pixmaps/cpanel.png
+t: ControlPanel
+c: exec cpanel
+i: /usr/local/share/pixmaps/apps.png
+t: Apps
+c: exec apps
+i: /usr/local/share/pixmaps/remmina.png
+t: Win7-demo
+c: rdesktop -f Win7-demo -r disk:disk=/mnt -z -k it
+i: /usr/local/share/pixmaps/remmina.png
+t: Win7-secure               
+c: rdesktop -f Win7-secure -r disk:disk=/mnt -z -k it
