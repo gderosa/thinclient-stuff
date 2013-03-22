@@ -1,0 +1,26 @@
+By default the ~/.xsession starts Xvesa with a mode of 1024x768x24.
+You can (safely?) replace this with 1280x1024x24.
+
+Or, you can install Xorg server and driver specific for you graphic card.
+
+For example, for an NVIDIA card, using open source drivers you an install,
+from the tinycore package manager: Xorg (last versione) and xf86-video-nv.
+
+~/.xsession will be automatically updated -- you'll find no mention of a 
+specific resolution, by default Xorg uses the best available resolution
+with maximum color depth.
+
+Specifically to set a keyboard layout, you'll need to:
+
+* create a template xorg.conf.new by running Xorg -configure as root
+
+* copy it to /etc/X11/xorg.conf
+
+* add something like 
+
+    Option "XkbLayout" "it"
+
+  in Keyboard section of /etc/X11/xorg.conf
+
+* Use the backup utility of TinyCore to get persistence by adding 
+  /etc/X11/xorg.conf to the list of persisted files.
