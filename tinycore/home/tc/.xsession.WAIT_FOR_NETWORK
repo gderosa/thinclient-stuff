@@ -1,0 +1,14 @@
+# Copy this part on top of your ~/.xsession
+# to wait until a Terminal Server is reachable
+# before starting the desktop
+
+SERVER=192.168.1.100
+
+UNREACHABLE=1
+echo "Wait for network: $SERVER"
+while [ "x$UNREACHABLE" = "x1" ]
+do
+    (ping -c 1 $SERVER > /dev/null) && UNREACHABLE=0 || (echo "Server still unreachable, please wait a moment... (or press CTRL-C to break)" && sleep 3)
+done
+
+echo "Done." &
