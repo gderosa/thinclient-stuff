@@ -3,7 +3,7 @@ You can (safely?) replace this with 1280x1024x24.
 
 Or, you can install Xorg server and driver specific for you graphic card.
 
-For example, for an NVIDIA card, using open source drivers you an install,
+For example, for an NVIDIA card, using open source drivers you can install,
 from the tinycore package manager: Xorg (last versione) and xf86-video-nv.
 
 ~/.xsession will be automatically updated -- you'll find no mention of a 
