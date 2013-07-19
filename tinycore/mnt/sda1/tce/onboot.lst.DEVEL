@@ -15,3 +15,16 @@ expat2.tcz
 ca-certificates.tcz
 mc.tcz
 Terminal.tcz
+remmina.tcz
+remmina-locale.tcz
+pci-utils.tcz
+Xorg-7.6.tcz
+xf86-video-intel.tcz
+Mplayer-nodeps.tcz
+alsa-config.tcz
+alsa-modules-3.0.21-tinycore.tcz
+alsa-oss.tcz
+alsa-plugins.tcz
+alsaconf.tcz
+FreeRDP-0.8.2.tcz
+FreeRDP-ffmpeg.tcz

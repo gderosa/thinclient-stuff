@@ -1,0 +1,2 @@
+#!/bin/sh
+xfreerdp --no-nla -u user.name -f --rfx -x m --plugin rdpsnd --data alsa -- --plugin rdpdr --data disk:tc:/mnt -- -z -a 16 -k it Host.Or.IP.Address >& /tmp/freerdp.log

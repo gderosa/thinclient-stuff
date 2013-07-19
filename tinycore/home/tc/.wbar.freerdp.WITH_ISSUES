@@ -1,0 +1,20 @@
+# The Bar && Font && Font size (11)
+i: /usr/local/share/wbar/osxbarback.png
+t: /usr//share/fonts/luxisr/11
+c: wbar --bpress --pos bottom --zoomf 2 --isize 32 
+i: /usr/local/share/pixmaps/exittc.png
+t: Exit
+c: exec exittc
+i: /usr/local/share/pixmaps/aterm.png
+t: Terminal
+c: exec aterm -fn -*-*-*-r-normal--*-230-*-*-c-*-iso8859-*
+i: /usr/local/share/pixmaps/cpanel.png
+t: ControlPanel
+c: exec cpanel
+i: /usr/local/share/pixmaps/apps.png
+t: Apps
+c: exec apps
+i: /usr/local/share/pixmaps/remmina.png
+t: MyWay
+c: xfreerdp --no-nla -u pasquale.micucci -f --rfx -x m -z -a 16 -k it 192.168.232.43 --plugin rdpdr --data disk:tc:/mnt
+

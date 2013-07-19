@@ -3,3 +3,6 @@ opt
 etc/udev/rules.d/automount.rules
 lib/udev/domount
 usr/bin/mountables.sh
+usr/local/tce.icons
+etc/X11/xorg.conf
+etc/init.d/tc-config
